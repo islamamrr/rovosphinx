@@ -1,0 +1,10 @@
+<launch>
+	<node pkg="joy" type="joy_node" name="joy_node"			args="_autorepeat_rate:=15  _coalesce_interval:=0.05" />
+	
+	<node pkg="ros_essentials_cpp" type="joy_control.py" name="joy_control" />
+
+	<include file="$(find pid)/launch/ROV.launch" />
+
+	<node pkg="ros_essentials_cpp" type="thrusters_control.py" name="thrusters_control" />
+	
+</launch>
